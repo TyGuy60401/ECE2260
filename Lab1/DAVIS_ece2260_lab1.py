@@ -9,18 +9,28 @@ def calculate_roots(coef):
         x2 = (-b + math.sqrt(b*b - 4*a*c))/(2*a)
         return (x1, x2)
     except ValueError as err:
-        print(err)
-        return
+        return err
     
     
 
 def compute_factorial(n):
-    return
+    if n == 0 or n == 1:
+        return 1
+    i = n
+    while (i > 1):
+        i -= 1
+        n = n*i
+    return n
     # to do
     
 
 def sum_factorial(n):
-    return
+    i = 1
+    val = 0
+    while i <= n:
+        val += compute_factorial(i)
+        i += 1
+    return val
     # to do
     
         
@@ -77,7 +87,6 @@ def main():
     roots = calculate_roots(coef)
     print("roots 4:")
     print(roots)
-    return
 
     ##############################################################
     # Part 2
@@ -89,7 +98,6 @@ def main():
         output_factorial = compute_factorial(n)
         print("computed factorial for n=%i is: %i" %
               (n, output_factorial))
-
     ##############################################################
     # Part 3
     ##############################################################
@@ -98,8 +106,11 @@ def main():
     
     for n in [3, 5, 6]:
         output_summation = sum_factorial(n)
+        print(output_summation)
         print("computed factorial summation for n=%i is: %i" %
               (n, output_summation))
+    
+    return
         
     ##############################################################
     # Part 4
