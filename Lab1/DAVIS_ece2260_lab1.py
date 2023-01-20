@@ -5,7 +5,7 @@ def calculate_roots(coef):
     b = coef[1]
     c = coef[2]
     in_rad = b*b - 4*a*c
-    if (in_rad >= 0):
+    if in_rad >= 0:
         x1 = (-b + math.sqrt(in_rad))/(2*a)
         x2 = (-b - math.sqrt(in_rad))/(2*a)
     else:
@@ -19,11 +19,10 @@ def compute_factorial(n):
     if n == 0 or n == 1:
         return 1
     i = n
-    while (i > 1):
+    while i > 1:
         i -= 1
         n = n*i
     return n
-    # to do
     
 
 def sum_factorial(n):
@@ -33,7 +32,6 @@ def sum_factorial(n):
         val += compute_factorial(i)
         i += 1
     return val
-    # to do
 
 def our_function(x):
     return math.e ** (-3*x) * math.cos(math.pi * x)
@@ -46,7 +44,6 @@ def left_riemann(delta_x, lb, ub):
         val += our_function(i) * delta_x
         i += delta_x
     return val
-    # to do
     
 
 def right_riemann(delta_x, lb, ub):
@@ -58,7 +55,6 @@ def right_riemann(delta_x, lb, ub):
         i += delta_x
 
     return val
-    # to do
     
 
 def midpoint_riemann(delta_x, lb, ub):
@@ -69,7 +65,6 @@ def midpoint_riemann(delta_x, lb, ub):
         val += our_function(i) * delta_x
         i += delta_x
     return val
-    # to do
 
     
 def trap_riemann(delta_x, lb, ub):
@@ -82,16 +77,9 @@ def trap_riemann(delta_x, lb, ub):
         i += delta_x
 
     return val
-    # to do
 
     
 def main():
-    # print(calculate_roots([2, 4, 0]))
-    # print(calculate_roots([1, 4, 4]))
-    # print(calculate_roots([1, 0, 9]))
-    # print(calculate_roots([2, 8, 26]))
-    
-    # return
 
 
     ##############################################################
