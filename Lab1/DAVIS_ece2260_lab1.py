@@ -1,8 +1,17 @@
 import math
 
 def calculate_roots(coef):
-    return
-    # to do
+    a = coef[0]
+    b = coef[1]
+    c = coef[2]
+    try:
+        x1 = (-b - math.sqrt(b*b - 4*a*c))/(2*a)
+        x2 = (-b + math.sqrt(b*b - 4*a*c))/(2*a)
+        return (x1, x2)
+    except ValueError as err:
+        print(err)
+        return
+    
     
 
 def compute_factorial(n):
@@ -36,7 +45,13 @@ def trap_riemann(delta_x, lb, ub):
 
     
 def main():
-    return
+    # print(calculate_roots([2, 4, 0]))
+    # print(calculate_roots([1, 4, 4]))
+    # print(calculate_roots([1, 0, 9]))
+    # print(calculate_roots([2, 8, 26]))
+    
+    # return
+
 
     ##############################################################
     # Part 1
@@ -62,6 +77,7 @@ def main():
     roots = calculate_roots(coef)
     print("roots 4:")
     print(roots)
+    return
 
     ##############################################################
     # Part 2
