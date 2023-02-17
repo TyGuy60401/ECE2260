@@ -8,7 +8,8 @@ def main():
     f_t = 5-5*np.e**(-t/tau)
     plt.plot(t, f_t)
     plt.xlabel("Time    [s]")
-    plt.ylabel("V_0(t)    [V]")
+    plt.ylabel(r"$V_{0}(t)$    [V]")
+    plt.title(r"$V_{0}(t)$ with respect to time")
     plt.show()
     print(find_time_constant(t, f_t))
 
