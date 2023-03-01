@@ -10,12 +10,16 @@ def main():
     v_f = 5
     ic_0 = 0
 
-    v_t = rlc_series(634, C, L, v_0, v_f, ic_0, t)
+    v_t = rlc_series(632.455, C, L, v_0, v_f, ic_0, t)
     
     plt.plot(t, v_t)
     plt.ticklabel_format(style='scientific', axis='x', scilimits=(0,0))
+    plt.title("RLC Series Circuit - Critically Damped")
+    plt.xlabel(r"Time $(s)$")
+    plt.ylabel(r"Vc $(V)$")
     plt.tight_layout()
-    plt.show()
+    plt.savefig("py_crit.png")
+    # plt.show()
 
 def rlc_series(R, C, L, v_0, v_f, ic_0, t):
     """
