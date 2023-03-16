@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import sys
 
 def main():
     num_samples = 1000
@@ -15,11 +16,9 @@ def main():
 
     mag_Z_s = np.abs(Z_s)
     angle_Z_s = np.angle(Z_s, True)
-    angle_degrees_Z_s = np.degrees(angle_Z_s)
 
     mag_Z_p = np.abs(Z_p)
     angle_Z_p = np.angle(Z_p, True)
-    angle_degrees_Z_p = np.degrees(angle_Z_p)
     
     # Do all of the pyplot stuff
     plt.suptitle("Magnitude and Phase Angle of Impedances")
@@ -29,10 +28,12 @@ def main():
     make_subplot(224, frequencies, angle_Z_p, r"RLC Parallel $\angle Z_p$", r"Degrees $[\degree ]$")
 
     plt.tight_layout()
-    plt.show()
+    if len(sys.argv) < 2:
+        plt.show()
     
-    
-    # find_omega_0()
+    print("RLC Series: ", find_omega_0(Z_s, omegas, "series"), sep='\t')
+    print("RLC Parallel: ", find_omega_0(Z_p, omegas, "parallel"), sep='\t')
+
 
 def make_subplot(num, x_axis, y_axis, title, y_axis_title):
     plt.subplot(num)
@@ -71,7 +72,20 @@ def find_omega_0(Z, omega, circuit_type):
         The resonant frequency in hertz
     
     """
-    return 
+    mag_Z = np.abs(Z)
+    if circuit_type == "series":
+        critical_Z = min(mag_Z)
+    elif circuit_type == "parallel":
+        critical_Z = max(mag_Z)
+    
+    diff_Z = mag_Z - critical_Z
+    for i in range(len(diff_Z)):
+        if diff_Z[i] == 0:
+            break
+    frequencies = omega/(2*np.pi)
+    omega_0, f_0 = omega[i], frequencies[i]
+    
+    return omega_0, f_0 
 
 if __name__ == '__main__':
     main()
