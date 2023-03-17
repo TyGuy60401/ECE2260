@@ -1,0 +1,23 @@
+Circuit: * C:\Users\tydav\gitLocals\ECE2260\Lab5\Draft1.asc
+
+Limiting rise time of source v1 to 5e-005
+Limiting fall time of source v1 to 5e-005
+.OP point found by inspection.
+
+Date: Wed Mar 01 11:35:29 2023
+Total elapsed time: 0.032 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 2440
+traniter = 2440
+tranpoints = 1221
+accept = 1188
+rejected = 33
+matrix size = 4
+fillins = 0
+solver = Normal
+Matrix Compiler1:       6 opcodes  0.0/[0.0]/0.0
+Matrix Compiler2: off  [0.0]/0.1/0.1
+
