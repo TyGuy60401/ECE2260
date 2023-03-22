@@ -73,18 +73,15 @@ def inverse_laplace(N_s, D_s, t):
     if hasRepRoots:
         print("There are repeated roots")
         if hasComplex:
-            # Do some stuff
             print("It has complex answers")
         else:
             print("No complex answers")
     else:
         print("There are no repeated roots")
         if hasComplex:
-            # Do some stuff
             print("It has complex answers")
         else:
             print("No complex answers")
-            # Do some stuff
             
 
     return 
