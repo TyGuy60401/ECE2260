@@ -63,13 +63,17 @@ def inverse_laplace(N_s, D_s, t):
     r, poles, res = sci.signal.residue(N_s, D_s)
     # Test if it's repeated
     hasRepRoots = False
+    numRepRoots = 0
     for i in range(len(poles)):
         if i == 0:
             continue
         if poles[i] == poles[i-1]:
+            # Needs support for multiple repeated roots
+            numRepRoots += 1
             hasRepRoots = True
-            break
+
     hasComplex = np.any(np.iscomplex(r))
+    # We probably Dont need this section
     if hasRepRoots:
         print("There are repeated roots")
         if hasComplex:
@@ -83,6 +87,8 @@ def inverse_laplace(N_s, D_s, t):
         else:
             print("No complex answers")
             
+    # The equation we want to use.
+    # (t^(n-1) * e(-at)) / (n!)  ==  1/(s+a)**n
 
     return 
 
