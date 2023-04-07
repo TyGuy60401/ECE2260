@@ -105,37 +105,5 @@ def inverse_laplace(N_s, D_s, t):
         f = f + (r[i] * t **(numRepRoots - 1) * np.exp(poles[i] * t)) / math.factorial(numRepRoots - 1)
     return f
 
-
-    # for i in range(len(poles)):
-    #     if i == 0:
-    #         continue
-    #     if poles[i] == poles[i-1]:
-    #         # Needs support for multiple repeated roots
-    #         numRepRoots += 1
-    #         hasRepRoots = True
-    #     else:
-    #         numRepRoots = 0
-
-
-    hasComplex = np.any(np.iscomplex(r))
-    # We probably Dont need this section
-    if hasRepRoots:
-        print("There are repeated roots")
-        if hasComplex:
-            print("It has complex answers")
-        else:
-            print("No complex answers")
-    else:
-        print("There are no repeated roots")
-        if hasComplex:
-            print("It has complex answers")
-        else:
-            print("No complex answers")
-            
-    # The equation we want to use.
-    # (t^(n-1) * e(-at)) / (n!)  ==  1/(s+a)**n
-
-    return 
-
 if __name__ == '__main__':
     main()
