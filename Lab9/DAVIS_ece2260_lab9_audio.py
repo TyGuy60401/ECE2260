@@ -9,7 +9,7 @@ def main(argv):
     if len(argv) > 1:
         userChoice = argv[1]
     else:
-        userChoice = input("Input:\n   plots | sound\n>> ")
+        userChoice = input("Input:\n   plots | sound | quit\n>> ")
 
     if "sound" in userChoice.lower():
         filename = 'handel.wav'
@@ -18,6 +18,8 @@ def main(argv):
         makePlot([2E7], [1, 2500, 2E7], "Low Pass Bode Plot", "low_pass_python.png")
         makePlot([1, 0, 0], [1, 25000, 2E8], "High Pass Bode Plot", "high_pass_python.png")
         plt.show()
+    elif "quit" in userChoice.lower():
+        return
 
 def makePlot(num, den, title="", fout="out.png"):
     sys = signal.TransferFunction(num, den)
