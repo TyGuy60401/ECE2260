@@ -32,6 +32,9 @@ def makePlot(num, den, title="", fout="out.png"):
     for i in range(len(mag_plus3)):
         if abs(mag_plus3[i]) == mag_min:
             mag_index = i
+    
+    x = w[mag_index]
+    y = mag[mag_index]
 
     fig, ax1 = plt.subplots()
     ax1.set_title(title)
@@ -39,7 +42,7 @@ def makePlot(num, den, title="", fout="out.png"):
     ax1.set_xlabel('Frequency [Hz]')
     ax1.set_ylabel('Magnitude [dB]', color="blue")
     ax1.semilogx(w, mag)
-    ax1.plot(w[mag_index], mag[mag_index], 'o', color="xkcd:leaf green", label="Half Power Point")
+    ax1.plot(x, y, 'o', color="xkcd:leaf green", label="Half Power Point\n%g Hz" % x)
     ax1.legend(loc="center left")
     ax1.grid(True)
 

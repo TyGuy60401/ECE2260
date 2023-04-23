@@ -1,8 +1,0 @@
-* C:\Users\tydav\gitLocals\ECE2260\Lab9\ltspice_resources\lowpass.asc
-V1 N001 0 AC 1
-L1 N001 v0 1m
-C1 v0 0 50µ
-R1 v0 0 8
-.ac dec 20 35 35000
-.backanno
-.end

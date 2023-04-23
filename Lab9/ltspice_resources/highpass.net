@@ -1,0 +1,8 @@
+* C:\Users\tydav\gitLocals\ECE2260\Lab9\ltspice_resources\highpass.asc
+V1 N001 0 AC 1
+C1 v0 N001 5µ
+L1 v0 0 1m
+R1 v0 0 8
+.ac dec 20 35 35000
+.backanno
+.end
