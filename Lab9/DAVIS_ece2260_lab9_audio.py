@@ -25,12 +25,22 @@ def makePlot(num, den, title="", fout="out.png"):
     sys = signal.TransferFunction(num, den)
     w, mag, phase = signal.bode(sys)
 
+    # Finding the half-power frequency of each network
+    mag_plus3 = (mag + 3)
+    mag_min = min(abs(mag_plus3))
+    mag_index = 0
+    for i in range(len(mag_plus3)):
+        if abs(mag_plus3[i]) == mag_min:
+            mag_index = i
+
     fig, ax1 = plt.subplots()
     ax1.set_title(title)
 
     ax1.set_xlabel('Frequency [Hz]')
     ax1.set_ylabel('Magnitude [dB]', color="blue")
     ax1.semilogx(w, mag)
+    ax1.plot(w[mag_index], mag[mag_index], 'o', color="xkcd:leaf green", label="Half Power Point")
+    ax1.legend(loc="center left")
     ax1.grid(True)
 
     ax2 = ax1.twinx()
